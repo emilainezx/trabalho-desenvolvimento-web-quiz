@@ -1,0 +1,207 @@
+* {
+    margin: 0; /* tirando margem de tudo */
+    padding: 0; /* tirando padding de tudo */
+    box-sizing: border-box; /* pra facilitar na hora de calcular o tamanho das coisas */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* fonte padrão que fica bonita */
+}
+
+/* configurando o corpo da pagina inteira */
+body {
+    background-image: url('img/havainas1.jpg'); /* imagem de fundo do quiz */
+    background-size: cover; /* pra imagem cobrir tudo sem ficar esticada */
+    background-position: center; /* centralizando a imagem */
+    background-repeat: no-repeat; /* pra não ficar repetindo a imagem */
+    min-height: 100vh; /* altura minima de 100% da tela */
+    background-color: rgba(255, 255, 255, 0.25); /* cor branca transparente por cima */
+    background-blend-mode: darken; /* misturando as cores pra ficar mais escuro */
+    display: flex; /* usando flex pra organizar melhor */
+    justify-content: center; /* centralizando na horizontal */
+    align-items: center; /* centralizando na vertical */
+    text-align: center; /* texto centralizado */
+}
+
+/* camada escura por cima da imagem de fundo */
+body::before {
+    position: fixed; /* fixando a camada na tela */
+    top: 0; /* grudando no topo */
+    left: 0; /* grudando na esquerda */
+    width: 100%; /* largura total */
+    height: 100%; /* altura total */
+    background: rgba(0, 0, 0, 0.3); /* camada preta transparente pra escurecer */
+}
+
+/* caixa inicial do quiz */
+.inicial-box {
+    background: rgba(255, 255, 255, 0.15); /* fundo branco bem transparente */
+    padding: 30px 40px; /* espacinho interno em volta do conteudo */
+    border-radius: 15px; /* deixando as bordas arredondadas */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25); /* sombrinha pra dar profundidade */
+    backdrop-filter: blur(8px); /* efeito de desfoque no fundo */
+    max-width: 500px; /* largura maxima da caixa */
+    margin-top: -75%; /* subindo a caixa pra ficar mais pra cima */
+}
+
+/* titulo da caixa inicial */
+.inicial-box h1 {
+    font-size: 36px; /* tamanho da fonte do titulo */
+    margin-bottom: 20px; /* espacinho embaixo do titulo */
+    color: #005A96; /* cor azul do titulo */
+}
+
+/* paragrafo da caixa inicial */
+.inicial-box p {
+    font-size: 16px; /* tamanho da fonte do texto */
+    margin-bottom: 20px; /* espacinho embaixo do paragrafo */
+    color: #000000; /* cor preta pro texto */
+}
+
+/* BOTÃO \"INICIAR\" E BOTÃO \"NEXT\" */
+/* estilo geral dos botoes */
+button {
+    padding: 10px 20px; /* espacinho interno do botao */
+    border-radius: 12px; /* deixando as bordas arredondadas */
+    border: none; /* tirando a borda padrao */
+    background-color: white; /* fundo branco do botao */
+    letter-spacing: 1.5px; /* espacinho entre as letras */
+    text-transform: uppercase; /* deixando as letras maiusculas */
+    font-size: 15px; /* tamanho da fonte do botao */
+    transition: all .5s ease; /* transição suave pra quando passar o mouse */
+    cursor: pointer; /* mudando o cursor quando passa por cima */
+}
+
+/* efeito quando passa o mouse no botao */
+button:hover {
+    letter-spacing: 3px; /* aumentando o espacinho entre as letras */
+    background-color: #FFCC00; /* mudando pra cor amarela */
+    color: #fff; /* texto ficando branco */
+    box-shadow: #ffffff 0px 7px 29px 0px; /* sombrinha branca no botao */
+}
+
+/* efeito quando clica no botao */
+button:active {
+    letter-spacing: 1.5px; /* voltando o espacinho entre as letras */
+    background-color: #005A96; /* mudando pra cor azul */
+    color: #fff; /* texto ficando branco */
+    box-shadow: #FFCC00 0px 7px 29px 0px; /* sombrinha amarela no botao */
+}
+
+/* botao de proximo */
+.next-btn {
+    margin-top: 25px; /* espacinho em cima do botao */
+    padding: 12px 20px; /* espacinho interno do botao */
+    font-size: 18px; /* tamanho da fonte do botao */
+    border-radius: 10px; /* deixando as bordas arredondadas */
+    cursor: pointer; /* mudando o cursor quando passa por cima */
+}
+
+/* ÁREA DO QUIZ */
+/* container principal do quiz */
+.app {
+    background: rgba(255, 255, 255, 0.15); /* fundo branco bem transparente */
+    padding: 30px 40px; /* espacinho interno em volta do conteudo */
+    border-radius: 15px; /* deixando as bordas arredondadas */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25); /* sombrinha pra dar profundidade */
+    backdrop-filter: blur(8px); /* efeito de desfoque no fundo */
+    -webkit-backdrop-filter: blur(8px); /* efeito de desfoque no fundo pra safari */
+    max-width: 600px; /* largura maxima da caixa */
+}
+
+/* titulo do quiz */
+.app h1 {
+    font-size: 32px; /* tamanho da fonte do titulo */
+    margin-bottom: 20px; /* espacinho embaixo do titulo */
+    color: #005A96; /* cor azul do titulo */
+}
+
+/* RELOGIO CONTANDO*/
+/* cronometro do quiz */
+#timer {
+    font-size: 20px; /* tamanho da fonte do cronometro */
+    font-weight: bold; /* deixando o texto em negrito */
+    color: #005A96; /* cor azul do cronometro */
+    padding: 10px 20px; /* espacinho interno do cronometro */
+    border-radius: 10px; /* deixando as bordas arredondadas */
+    margin: 15px 0; /* espacinho em cima e embaixo */
+    transition: all 0.3s ease; /* transição suave pra quando passar o mouse */
+}
+
+/* ALERTA NOS 10S */
+/* quando o tempo ta acabando */
+#timer.alerta {
+    background: rgba(255, 0, 0, 0.8); /* fundo vermelho transparente */
+    color: white; /* texto ficando branco */
+    animation: pulsar 0.6s infinite; /* animação de piscar infinita */
+}
+
+/* area da pergunta */
+#question {
+    font-size: 20px; /* tamanho da fonte da pergunta */
+    margin: 20px 0; /* espacinho em cima e embaixo */
+    color: #000; /* cor preta pro texto */
+    background: rgba(255, 255, 255, 0.7); /* fundo branco transparente */
+    padding: 15px; /* espacinho interno da area da pergunta */
+    border-radius: 10px; /* deixando as bordas arredondadas */
+}
+
+/* ÁREA DE RESPONDER O QUIZ */
+/* container dos botoes de resposta */
+#answer-buttons {
+    display: flex; /* usando flex pra organizar melhor */
+    flex-direction: column; /* organizando em coluna */
+    gap: 15px; /* espacinho entre os botoes */
+    margin-top: 30px; /* espacinho em cima dos botoes */
+}
+
+/* cada botao de resposta */
+#answer-buttons .btn {
+    width: 100%; /* largura total */
+    padding: 12px; /* espacinho interno do botao */
+    font-size: 18px; /* tamanho da fonte do botao */
+    border-radius: 10px; /* deixando as bordas arredondadas */
+    border: none; /* tirando a borda padrao */
+    cursor: pointer; /* mudando o cursor quando passa por cima */
+    background: rgba(219, 212, 212, 0.671); /* fundo cinza transparente */
+    transition: all 0.3s ease; /* transição suave pra quando passar o mouse */
+}
+
+/* efeito quando passa o mouse nos botoes de resposta */
+#answer-buttons .btn:hover {
+    background: #FFCC00; /* mudando pra cor amarela */
+    color: #000; /* cor preta pro texto */
+}
+
+/* FIM DO QUIZ */
+/* tela final com a pontuacao */
+.tela-final {
+    background: rgba(255, 255, 255, 0.15); /* fundo branco bem transparente */
+    padding: 30px 40px; /* espacinho interno em volta do conteudo */
+    border-radius: 15px; /* deixando as bordas arredondadas */
+    backdrop-filter: blur(8px); /* efeito de desfoque no fundo */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25); /* sombrinha pra dar profundidade */
+    max-width: 500px; /* largura maxima da caixa */
+}
+
+/* area da pontuacao final */
+#pontuacao {
+    font-size: 24px; /* tamanho da fonte da pontuacao */
+    color: #005A96; /* cor azul da pontuacao */
+    padding: 15px; /* espacinho interno da area da pontuacao */
+    border-radius: 10px; /* deixando as bordas arredondadas */
+    margin: 15px 0; /* espacinho em cima e embaixo */
+}
+
+/* botao da tela final */
+#botao-final {
+    margin-top: 15px; /* espacinho em cima do botao */
+    padding: 12px 25px; /* espacinho interno do botao */
+    font-size: 20px; /* tamanho da fonte do botao */
+    border-radius: 10px; /* deixando as bordas arredondadas */
+    background-color: #FFCC00; /* mudando pra cor amarela */
+    border: none; /* tirando a borda padrao */
+}
+
+/* efeito quando passa o mouse no botao final */
+#botao-final:hover {
+    background-color: #005A96; /* mudando pra cor azul */
+    color: white; /* texto ficando branco */
+}

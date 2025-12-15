@@ -1,0 +1,63 @@
+<!DOCTYPE html> <!-- Diz que o arquivo é HTML5 -->
+<html lang="pt-br"> <!-- Define que o idioma principal da página é português do Brasil -->
+<head> <!-- Cabeçalho do site, onde ficam configurações -->
+  <meta charset="UTF-8"> <!-- Define o padrão de caracteres para aceitar acentos -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz o site adaptar para celular -->
+  <link rel="stylesheet" href="style.css"> <!-- Liga o arquivo CSS externo pra estilizar a página -->
+  <title>Quiz</title> <!-- Nome da aba do navegador -->
+</head> <!-- Fecha o cabeçalho -->
+
+<body> <!-- Corpo da página, onde vai tudo que aparece visualmente -->
+  <header> <!-- Parte de cima do site, tipo cabeçalho -->
+      <div class="inicial-box"> <!-- Caixa inicial do quiz, com título e botão de iniciar -->
+        <h1>Quiz Havaianas</h1> <!-- Título principal que aparece logo de cara -->
+        <form action=""> <!-- Formulário usado só pra organizar o botão e o texto -->
+          <p>O quiz tem 10 perguntas sobre a marca Havaianas. cada pergunta tem 20 segundos para serem respondidas. O objetivo do jogo é responder corretamente as perguntas para fazer a pontuação máxima.</p> <!-- Texto explicando como funciona o quiz -->
+          <button type="submit" id="botao-iniciar">Iniciar</button> <!-- Botão que inicia o quiz -->
+        </form> <!-- Fecha o formulário -->
+      </div> <!-- Fecha a box inicial -->
+  </header> <!-- Fecha o cabeçalho -->
+
+  <main> <!-- Parte principal do site -->
+    <div class="app"> <!-- Div onde acontece o quiz em si -->
+      <h2>Quiz Havaianas</h2> <!-- Título dentro do quiz -->
+        
+      <div class="tempo-box"> <!-- Div do timer -->
+        <div id="timer">Tempo: <span id="time-left"></span>s</div> <!-- Relógio onde o JS coloca o tempo -->
+      </div> <!-- Fecha a div do timer -->
+
+      <h2 id="question">Question goes here</h2> <!-- Aqui aparece o texto da pergunta, vindo do JS -->
+
+      <div id="answer-buttons"> <!-- Div que guarda os botões de resposta -->
+        <button class="btn">Answer 1</button> <!-- Botão da alternativa 1 -->
+        <button class="btn">Answer 2</button> <!-- Botão da alternativa 2 -->
+        <button class="btn">Answer 3</button> <!-- Botão da alternativa 3 -->
+        <button class="btn">Answer 4</button> <!-- Botão da alternativa 4 -->
+        <button class="btn">Answer 5</button> <!-- Botão da alternativa 5 -->
+      </div> <!-- Fecha a div dos botões -->
+
+      <button class="next-btn">Next</button> <!-- Botão pra passar pra próxima pergunta -->
+    </div> <!-- Fecha a div app -->
+
+    <section class="tela-final"> <!-- Tela que aparece no final do quiz -->
+      <p>Parabéns! Você chegou ate o final.</p> <!-- Mensagem de parabéns -->
+      <p id="pontuacao">Sua pontuação foi:</p> <!-- Aqui aparece a pontuação final -->
+      <button type="reset" id="botao-final">Jogar de novo</button> <!-- Botão pra reiniciar o quiz -->
+    </section> <!-- Fecha a tela final -->
+  </main> <!-- Fecha o conteúdo principal -->
+
+  <audio preload="none" id="som-acerto"> <!--começo da tag audio-->
+    <source src="sounds/havainas.mp3" type="audio/mpeg"> <!--audio em mp3-->
+    <source src="sounds/havainas.ogg" type="audio/ogg"> <!--audio em ogg-->
+    <source src="sounds/havainas.wav" type="audio/wav"> <!--audio em wav-->
+  </audio> <!--final da tag audio-->
+
+  <audio id="som-erro" preload="none"> <!--começo da tag audio-->
+    <source src="sounds/Errou-Faustao-Falando.mp3" type="audio/mpeg"> <!--audio em mp3-->
+    <source src="sounds/Errou-Faustao-Falando.ogg" type="audio/ogg"> <!--audio em ogg-->
+    <source src="sounds/Errou-Faustao-Falando.wav" type="audio/wav"> <!--audio em wav-->
+  </audio> <!--final da tag audio-->
+
+<script src="script.js"></script> <!-- Chama o arquivo JavaScript que faz tudo funcionar -->
+</body> <!-- Fecha o corpo -->
+</html> <!-- Fecha o HTML -->
